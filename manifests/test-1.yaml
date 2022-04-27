@@ -1,0 +1,7 @@
+apiVersion: hardik.dev/v1alpha1
+kind: Snapshotter
+metadata:
+  name: snapshot-1
+spec:
+  claimname: "psql-pvc"
+  classname: "csi-hostpath-snapclass"

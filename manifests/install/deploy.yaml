@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: snapshotter
+  name: snapshotter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: snapshotter
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: snapshotter
+    spec:
+      serviceAccount: snapshotter-sa
+      containers:
+        - image: hardikinfracloud/snapshotter:1.0.0
+          name: snapshotter
+          resources:
+            limits:
+              cpu: "1"
+              memory: "512Mi"
